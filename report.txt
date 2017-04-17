@@ -1,0 +1,63 @@
+1.) Brief introduction of the classification method
+
+In this assignment we utilize the Naive Bayes theorem to build a classifier to label previously unseen data. This method consists of statistical measures based on the classification of seen data used to build a probabilistic model.
+
+Bayes Theorem is as follows: P(C|X) = P(X|C)P(C) / P(X).
+
+
+2.) Implementation Details
+
+Data Structures & Reasoning
+
+1D-Array
+Store totals |[0]: +1 class Count |[1]: -1 class Count |[2]: Total class Count|
+
+2D-Array
+
+used to build a model for classification of the two classes -1, and 1 by tracking occurrence frequency.
+
+2D-Vector & Pairs (Vector of Vectors of Pairs)
+
+used to store input training and test data. Last pair in each Vector used to store Class and number of attributes in each class.
+
+Algorithms & Parameters
+
+Utilized the classification technique based on Bayes Theorem with an assumption of independence among (Index:Value Pairs) attributes. This technique Assumes that the presence of a particular feature in a class is unrelated to the presence of any other feature.
+
+Given Attributes (Index:Value Pairs) are Represented as A and Class is represented as C.
+
+Bayes theorem provides a way of calculating posterior probability P(C|A) from P(C), P(A) and P(A|C).
+
+P(C|A)	: posterior probability of class given parameters (attributes: Index:Value pairs).
+P(C)	: prior probability of class.
+P(A|C)	: probability of attributes given class.
+P(A)	: prior probability of attributes.
+
+In this assignment the division of P(A) is omitted to reduce computations because it yields the same results in all cases.
+
+Algorithmic Steps
+
+Loadeddata()
+1.) Create a frequency table for corresponding +1 and -1 class (“Plus” & “Neg” 2D Array).
+
+Classify()
+2.) Calculate Probabilities of set of Attributes to both tables.
+3.) Multiple by probability of Class/Total.
+4.) Compare probability given class and the predict based on the higher probability. 
+
+3.) Output Results
+
+bc-train and bc-test
+38 18 21 103
+16 13 16 61
+
+results of led-train and led-test
+399 239 92 1357
+207 144 41 742
+
+4.) Personal thoughts and potential improvement
+
+Limitations of this approach seems to be the assumption of independent probabilities and the reliance of completely correct and abundant data. Given Naive Bayes simplicity it still proves to be a highly effective classifier even against more complex techniques.
+
+Potential improvements for this assignment would be to dynamically build classifier based on the max number of attributes instead of assuming a particular set of indexes or attributes which may have helped the effectiveness for the led training and testing.
+
